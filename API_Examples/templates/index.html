@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>api example</title>
+</head>
+<body>
+    <h3>github api</h3>
+    <form method="POST">
+        <input type="text" name="username" id="" required>
+        {% csrf_token %}
+        <input type="submit" value="GET github Info" name="">
+    </form>
+
+    {% if user %}
+    <div style="margin: auto;">
+        <img src={{user.avatar_url}} alt="" style="width: 150px;">
+        <p>user name: {{ user.login }}</p>
+        <a href={{user.html_url}}  target='_blank'>account</a>
+        <p>number of repositories: {{user.public_repos}}</p>
+        <p>last update :{{user.updated_at}} <br> create at :{{user.created_at}}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
